@@ -14,7 +14,7 @@ URL = 'https://portal.sa.dendai.ac.jp/up/faces/login/Com00505A.jsp'
 ID = input('ID')
 PASS = input('PASS')
 YOBI = input("何曜日? 0:月 1:火 2:水 3:木 4:金 5:土 6:日")
-JIGEN = str(int(input("何時限目? 1~8")) - 1)
+JIGEN = str(int(input("何時限目? 1~8")))
 
 
 #ブラウザ起動
@@ -90,7 +90,7 @@ driver.find_element_by_xpath('//*[@id="menuForm:mainMenu"]/ul/li[4]/ul/table/tbo
 
 print('シラバス検索ページ')
 Syobi = str(2*int(YOBI)+1)
-Sjigen = str(2*int(JIGEN)+1)
+Sjigen = str(2*(int(JIGEN)-1)+1)
 Xyobi = '//*[@id="funcForm:yobiList"]/tbody/tr/td['+Syobi+']/div/div[2]'
 Xjigen = '//*[@id="funcForm:jigenList"]/tbody/tr/td['+Sjigen+']/div/div[2]'
 print(Xyobi)
