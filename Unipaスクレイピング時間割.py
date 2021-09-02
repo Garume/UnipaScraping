@@ -1,3 +1,4 @@
+# coding: utf-8
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from bs4 import BeautifulSoup
@@ -124,16 +125,16 @@ clasnum=0
 res = ""
 for i in range(1,48):
     try:
-        clasnum+=1;
+        clasnum+=1
         jigen = divmod(i,8)
         JIGEN = "{}曜日{}時間目".format(yobi[jigen[0]],jigen[1])
         if jigen[1] == 0:
             JIGEN = "{}曜日8時間目".format(yobi[jigen[0]-1])
         print(str(i)+":"+JIGEN)
         time.sleep(2)
-        Jpath = '//*[@id="funcForm:j_idt250:0:j_idt259:'+str(jigen[1]-1)+':j_idt263:'+str(jigen[0])+':j_idt267:0:j_idt287"]' 
+        Jpath = '//*[@id="funcForm:j_idt250:'+str(seazon)+':j_idt259:'+str(jigen[1]-1)+':j_idt263:'+str(jigen[0])+':j_idt267:0:j_idt287"]' 
         if jigen[1] == 0:
-            Jpath = '//*[@id="funcForm:j_idt250:0:j_idt259:7:j_idt263:'+str(jigen[0])+':j_idt267:0:j_idt287"]' 
+            Jpath = '//*[@id="funcForm:j_idt250:'+str(seazon)+':j_idt259:7:j_idt263:'+str(jigen[0])+':j_idt267:0:j_idt287"]' 
         driver.find_element_by_xpath(Jpath).click()
         print("nowCaptureing"+str(i))
         #//*[@id="pkx02301:ch:table"]/div[3]/div[2]/div 授業コード
